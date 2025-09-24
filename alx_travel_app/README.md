@@ -1,4 +1,4 @@
-# alx_travel_app_0x00# ALX Travel App - Milestone 2
+# ALX Travel App - Milestone 2
 
 This project implements the backend components for a travel booking platform using Django and Django REST Framework.
 
