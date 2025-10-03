@@ -1,43 +1,50 @@
-# ALX Travel App - Milestone 2
+# ALX Travel App - Milestone 3
 
-This project implements the backend components for a travel booking platform using Django and Django REST Framework.
+This project implements CRUD API endpoints for managing property listings and bookings using Django REST Framework.
 
 ## Features
 
-- **Database Models**: Listing, Booking, and Review models with proper relationships
-- **Serializers**: Convert model instances to JSON for API responses
-- **Seed Command**: Populate database with sample data for development and testing
+- **Listings API**: Full CRUD operations for property listings
+- **Bookings API**: Full CRUD operations for bookings
+- **Swagger Documentation**: Interactive API documentation
+- **Authentication**: User-based permissions and ownership
 
-## Models
+## API Endpoints
 
-### Listing
-- Represents properties available for booking
-- Includes details like title, description, location, pricing, and amenities
-- ForeignKey relationship with User (host)
+### Listings
+- `GET /api/listings/` - List all listings
+- `POST /api/listings/` - Create a new listing
+- `GET /api/listings/{id}/` - Retrieve a specific listing
+- `PUT /api/listings/{id}/` - Update a listing
+- `PATCH /api/listings/{id}/` - Partial update a listing
+- `DELETE /api/listings/{id}/` - Delete a listing
 
-### Booking
-- Represents reservations made by guests
-- ForeignKey relationships with Listing and User (guest)
-- Includes booking dates, status, and pricing information
+### Bookings
+- `GET /api/bookings/` - List user's bookings (all for staff)
+- `POST /api/bookings/` - Create a new booking
+- `GET /api/bookings/{id}/` - Retrieve a specific booking
+- `PUT /api/bookings/{id}/` - Update a booking
+- `PATCH /api/bookings/{id}/` - Partial update a booking
+- `DELETE /api/bookings/{id}/` - Delete a booking
 
-### Review
-- Represents guest reviews for listings
-- ForeignKey relationships with Listing and User (guest)
-- OneToOne relationship with Booking
+## Documentation
+
+- **Swagger UI**: `/swagger/`
+- **ReDoc**: `/redoc/`
 
 ## Setup Instructions
 
-1. Clone the repository and navigate to the project directory
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
-4. Install dependencies: `pip install -r requirements.txt`
-5. Run migrations: `python manage.py migrate`
-6. Seed the database: `python manage.py seed`
-7. Start the development server: `python manage.py runserver`
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run migrations: `python manage.py migrate`
+4. Create superuser: `python manage.py createsuperuser`
+5. Run server: `python manage.py runserver`
 
-## Seeding the Database
+## Testing with Postman
 
-To populate the database with sample data:
+1. Start the development server
+2. Import the following endpoints to Postman:
 
-```bash
-python manage.py seed
+### Sample Requests:
+
+**Create Listing (POST)**
